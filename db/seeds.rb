@@ -6,9 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Product.delete_all
-
-Product.create!(
-  title: "Etsy, Inc.",
+Product.create!(title: "Etsy, Inc.",
   description: 
     %{<p>
       Etsy is an e-commerce website focused on handmade 
@@ -16,5 +14,4 @@ Product.create!(
       items under Etsy's new guidelines, released in October 2013.
     </p>},
   image_url: "unknown.jpg",
-  price: 270.25
-)
+  price: 270.25)

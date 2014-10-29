@@ -4,11 +4,11 @@
   <% @products.each do |product| %>
     <tr>
       <td>
-        <%= product.image_url %>
+        <%= image_tag product.image_url, class: "list_image" %>
       </td>
       <td class="list_description">
         <dt><%= product.title %></dt>
-        <dd><%= product.description %></dd>
+        <dd><%= truncate product.description, length: 80 %></dd>
       </td>
       <td><%= product.price %></td>
       <td class="list_actions">
