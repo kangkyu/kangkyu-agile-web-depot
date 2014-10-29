@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  fixtures :products
+
   test "product attributes must not be empty" do
     product = Product.new
     assert product.invalid?
@@ -26,5 +28,33 @@ class ProductTest < ActiveSupport::TestCase
 
     product.price = 1
     assert product.valid?
+  end
+
+  def new_product(image_url)
+    Product.new(title: "Etsy, Inc.",
+                description: 'Etsy is an e-commerce website',
+                price: 270.25,
+                image_url: image_url)
+  end
+
+  test "image url" do
+    ok = %w{ dave.jpg dave.png dave.gif dave.JPG DAVE.Jpg 
+             http://no.such.site/a/b/c/dave.gif }
+    bad = %w{ dave.doc dave.gif/more dave.gif.fred }
+    ok.each do |name|
+      assert new_product(name).valid?, "#{name} should be valid"
+    end
+    bad.each do |name|
+      assert new_product(name).invalid?, "#{name} shouldn't be valid"
+    end
+  end
+
+  test "product title must be unique" do
+    product = Product.new(title: products(:ruby).title,
+                description: 'Etsy is an e-commerce website',
+                price: 270.25,
+                image_url: "image_url.gif")
+    assert product.invalid?
+    assert_equal product.errors[:title], ["has already been taken"]
   end
 end
