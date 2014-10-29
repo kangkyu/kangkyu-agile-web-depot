@@ -10,7 +10,7 @@
         <dt><%= product.title %></dt>
         <dd><%= truncate product.description, length: 80 %></dd>
       </td>
-      <td><%= product.price %></td>
+      <td><%= number_to_currency(product.price) %></td>
       <td class="list_actions">
         <%= link_to 'Show', product %>
         <%= link_to 'Edit', edit_product_path(product) %>
