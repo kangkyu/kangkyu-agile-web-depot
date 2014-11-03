@@ -10,7 +10,7 @@
 
   <div id="banner">
     <%= image_tag "logo.png" %>
-    <%= @page_title || "Pottery Barn" %>
+    <%= link_to (@page_title || "Pottery Barn"), store_path %>
   </div>
 
   <div id="columns">

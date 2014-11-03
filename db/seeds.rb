@@ -15,3 +15,13 @@ Product.create!(title: "Etsy, Inc.",
     </p>},
   image_url: "unknown.jpg",
   price: 270.25)
+Product.create!(title: "Yelp",
+  description: 
+    %{<p>
+      Yelp is a multinational corporation headquartered in 
+      San Francisco, California. It develops, hosts and markets 
+      Yelp.com and the Yelp mobile app, which publish crowd-sourced 
+      reviews about local businesses.
+    </p>},
+  image_url: "download.jpg",
+  price: 270.25)
