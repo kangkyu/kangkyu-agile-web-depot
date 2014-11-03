@@ -24,4 +24,4 @@ Product.create!(title: "Yelp",
       reviews about local businesses.
     </p>},
   image_url: "download.jpg",
-  price: 270.25)
+  price: 22.25)
