@@ -6,10 +6,10 @@ class Product < ActiveRecord::Base
   # hook method: automatically calls at a given point in an object’s life
   def ensure_not_referenced_by_any_line_item
     if line_items.empty?
-      return :true
+      return true
     else
       errors.add(:base, 'Line Items present')
-      return :false
+      return false
     end
   end
 
